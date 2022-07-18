@@ -1,21 +1,19 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import api from "../api_handle";
+import Lists from "./Lists";
+import Row from "./Row";
 function Main() {
   const [trending, setTrending] = useState([]);
   const [banner, setBanner] = useState("");
   const getTrending = async () => {
     let data = await axios.get(api.getTrending);
-    console.log(data.data.results);
+    // console.log(data.data.results);
     setTrending(data.data.results);
     setBanner(
       data.data.results[
         Math.floor([Math.random() * data.data.results.length - 1])
       ]
-    );
-    console.log(
-      data.data.results[Math.random() * data.data.results.length - 1]
-        .backdrop_path
     );
   };
   useEffect(() => {
@@ -25,11 +23,11 @@ function Main() {
   return (
     <>
       {banner && (
-        <div>
-          <div className="w-full h-[350px]">
+        <>
+          <div className="w-full h-[450px]">
             <div className="absolute w-full h-[450px] bg-gradient-to-r from-black"></div>
             <img
-              className="w-full h-[450px] object-cover z-500"
+              className="w-full h-[450px] object-cover"
               src={`https://image.tmdb.org/t/p/original/${banner?.backdrop_path}`}
               alt={banner?.title}
             />
@@ -54,7 +52,7 @@ function Main() {
               Add to watchlist
             </button>
           </div>
-        </div>
+        </>
       )}
     </>
   );
