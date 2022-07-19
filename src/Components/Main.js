@@ -24,16 +24,16 @@ function Main() {
     <>
       {banner && (
         <>
-          <div className="w-full h-[450px]">
+          <div className=" w-full h-[450px]">
             <div className="absolute w-full h-[450px] bg-gradient-to-r from-black"></div>
             <img
-              className="w-full h-[450px] object-cover"
+              className="w-full h-[450px]  object-cover"
               src={`https://image.tmdb.org/t/p/original/${banner?.backdrop_path}`}
               alt={banner?.title}
             />
           </div>
           <div className="absolute top-[30%] px-14 text-white">
-            <div className="text-4xl py-2">{banner?.title}</div>
+            <div className="text-4xl text-white py-2">{banner?.title}</div>
             <div className="text-sm text-slate-700 py-4">
               Released on {banner?.release_date}
             </div>

@@ -5,7 +5,7 @@ function Row({ title, URL }) {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
     axios.get(URL).then((ress) => {
-      setMovies(ress.data.results);
+      setMovies(ress.data.results.splice(0, 5));
     });
   }, [URL]);
 
@@ -16,11 +16,16 @@ function Row({ title, URL }) {
       <div className="flex overflow-y-auto no-scrollbar space-x-4 mb-6">
         {movies &&
           movies.map((item, id) => (
-            <img
-              className="h-[150px] w-[300px]"
-              src={`https://image.tmdb.org/t/p/w500/${item.backdrop_path}`}
-              alt={item.title}
-            />
+            <div className="relative h-[150px] w-[300px] ">
+              <img
+                className="h-full w-full "
+                src={`https://image.tmdb.org/t/p/w500/${item.backdrop_path}`}
+                alt={item.title}
+              />
+              <div className="absolute top-0 left-0 w-full h-full hover:bg-black/50  before:hidden hover:text-white flex items-center justify-center">
+                {item.title}
+              </div>
+            </div>
           ))}
       </div>
     </div>
