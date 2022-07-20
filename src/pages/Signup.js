@@ -11,6 +11,7 @@ function Signup() {
     e.preventDefault();
     try {
       await signUp(email, password);
+      console.log(user.email);
       navigate("/");
     } catch (err) {
       console.log(err);

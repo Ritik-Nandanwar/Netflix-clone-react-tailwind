@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { user, signUp, login } = UserAuth();
+  const { login } = UserAuth();
   const navigate = useNavigate();
   //FirebaseError: Firebase: Error (auth/email-already-in-use).
   const submitHandler = async (e) => {

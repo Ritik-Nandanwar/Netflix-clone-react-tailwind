@@ -1,10 +1,4 @@
-import {
-  useContext,
-  createContext,
-  useDeferredValue,
-  useState,
-  useEffect,
-} from "react";
+import { useContext, createContext, useState, useEffect } from "react";
 import { auth } from "../firebase";
 import {
   createUserWithEmailAndPassword,
@@ -21,7 +15,7 @@ export function AuthContextProvider({ children }) {
     return createUserWithEmailAndPassword(auth, email, password);
   }
 
-  function logOut(email, password) {
+  function logOut() {
     return signOut(auth);
   }
 

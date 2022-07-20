@@ -4,9 +4,9 @@ import { FaHeart, FaRegHeart } from "react-icons/fa";
 function Movie({ item, id }) {
   return (
     <>
-      <div className="relative w-[350px] h-[200px]">
+      <div className="relative inline-block w-[350px] h-[200px]">
         <img
-          className="w-full h-full"
+          className=" h-auto w-full block"
           src={`https://image.tmdb.org/t/p/w500/${item?.backdrop_path}`}
           alt={item?.title}
         />
