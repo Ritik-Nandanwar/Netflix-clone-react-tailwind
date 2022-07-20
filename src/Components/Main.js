@@ -25,19 +25,21 @@ function Main() {
       {banner && (
         <>
           <div className=" w-full h-[450px]">
-            <div className="absolute w-full h-[450px] bg-gradient-to-r from-black"></div>
             <img
               className="w-full h-[450px]  object-cover"
               src={`https://image.tmdb.org/t/p/original/${banner?.backdrop_path}`}
               alt={banner?.title}
             />
+            <div className="absolute top-[60px] left-0 w-full h-[450px] bg-gradient-to-r bg-transparent from-gray-900"></div>
           </div>
-          <div className="absolute top-[30%] px-14 text-white">
-            <div className="text-4xl text-white py-2">{banner?.title}</div>
-            <div className="text-sm text-slate-700 py-4">
+          <div className="absolute top-[30%] px-14 text-white bg-transparent">
+            <div className="text-4xl text-white py-2 bg-transparent">
+              {banner?.title}
+            </div>
+            <div className="text-sm bg-transparent text-slate-700 py-4">
               Released on {banner?.release_date}
             </div>
-            <div className="text-sm text-slate-500 py-2">
+            <div className="text-sm bg-transparent text-slate-500 py-2">
               {banner?.overview.slice(0, 150)}...
             </div>
             <button className="px-4 mt-2 py-2 mr-4 rounded bg-red-600">
