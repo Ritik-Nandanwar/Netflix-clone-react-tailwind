@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
+import Movie from "./Movie";
 
 function Row({ title, URL }) {
   const [movies, setMovies] = useState([]);
@@ -13,20 +15,11 @@ function Row({ title, URL }) {
   return (
     <div className="ml-2">
       <h1 className="text-red-600 font-semibold text-2xl py-2">{title}</h1>
-      <div className="flex overflow-y-auto no-scrollbar space-x-4 mb-6">
-        {movies &&
-          movies.map((item, id) => (
-            <div className="relative h-[150px] w-[300px] ">
-              <img
-                className="h-full w-full "
-                src={`https://image.tmdb.org/t/p/w500/${item.backdrop_path}`}
-                alt={item.title}
-              />
-              <div className="absolute top-0 left-0 w-full h-full hover:bg-black/50  before:hidden hover:text-white flex items-center justify-center">
-                {item.title}
-              </div>
-            </div>
-          ))}
+      <div className="flex item-center relative">
+        <div className="flex w-full h-full  space-x-4 scroll-smooth scrollbar-hide ">
+          {movies &&
+            movies.map((item, id) => <Movie key={id} item={item} id={id} />)}
+        </div>
       </div>
     </div>
   );
