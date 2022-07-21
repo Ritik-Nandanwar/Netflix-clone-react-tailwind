@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 function Movie({ item, id }) {
+  const [like, setLike] = useState(false);
   return (
     <>
       <div className="relative inline-block w-[350px] h-[200px]">
@@ -14,9 +15,17 @@ function Movie({ item, id }) {
           <p className="white-space-normal text-xs md:text-sm font-bold flex justify-center items-center h-full text-center text-white">
             {item?.title}
           </p>
-          <p className="text-white">
-            <FaHeart className="absolute top-4 left-0" fill="#fff" />
-            <FaRegHeart fill="#fff" className="absolute top-4 left-4" />
+          <p
+            className="text-white"
+            onClick={() => {
+              setLike(!like);
+            }}
+          >
+            {like ? (
+              <FaHeart className="absolute top-4 left-4" fill="#fff" />
+            ) : (
+              <FaRegHeart fill="#fff" className="absolute top-4 left-4" />
+            )}
           </p>
         </div>
       </div>
