@@ -65,7 +65,10 @@ const Account = () => {
                   {item?.title}
                 </p>
                 <p
-                  onClick={() => deleteShow(item.id)}
+                  onClick={() => {
+                    deleteShow(item.id);
+                    alert("Show removed");
+                  }}
                   className="absolute text-gray-300 top-4 right-4"
                 >
                   <AiOutlineClose
