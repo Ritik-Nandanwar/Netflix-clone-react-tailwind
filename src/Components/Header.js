@@ -5,9 +5,11 @@ import { UserAuth } from "../contest/AuthContext";
 function Header() {
   const { logOut, user } = UserAuth();
   return (
-    <div className="container flex justify-between bg-transparent  mx-auto py-2 ">
+    <div className="container flex justify-between bg-transparent   mx-auto py-2 ">
       <Link to="/">
-        <div className="text-red-600 text-4xl font-bold">NETFLIX</div>
+        <div className="text-red-600 text-xl md:text-4xl font-bold">
+          NETFLIX
+        </div>
       </Link>
       <div className="flex items-center">
         {user ? (
